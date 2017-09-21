@@ -5,6 +5,9 @@
  */
 package tests;
 
+import edu.eci.pdsw.samples.entities.Eps;
+import edu.eci.pdsw.samples.entities.Paciente;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,14 +15,26 @@ import static org.junit.Assert.*;
 /**
  *
  * @author hcadavid
+ * Clases de equivalencia
+ * CLASE 1: SI recibe un paciente valido lo agrega lo agrega al Map pacientes.
+ * Retorna Null
+ * 
+ * 
  */
 public class ServiciosPacientesTest {
+    @Test
+    public void testRegistroPaciente(){
+        Paciente pa1 = new Paciente(132456,"CC","PEPITA",new Date("1982-02-25"), new Eps("PEPITAS", "1241241"));
+        Paciente pa2=new Paciente(9587456, "TI","Pepote",new Date("20041-01-29"), new Eps("PEPIToS", "124646"));
+        
     
-    public ServiciosPacientesTest() {
+    
+    
+    
     }
     
-    @Before
-    public void setUp() {
-    }
+
+    
+    
     
 }

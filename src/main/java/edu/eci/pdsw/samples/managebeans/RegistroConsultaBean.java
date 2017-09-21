@@ -17,6 +17,7 @@ import org.primefaces.context.RequestContext;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 
 /**
  *
@@ -25,12 +26,15 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "HistorialPacientes")
 @SessionScoped
 public class RegistroConsultaBean implements Serializable {
-
-    private final ServiciosPacientes servicepacientes = ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
-
     
+    private final ServiciosPacientes servicepacientes = ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
+    
+    
+    
+   
 
     public RegistroConsultaBean() {
+
     }
 
     public void showMessage(String estado, String mensaje) {
