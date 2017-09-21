@@ -8,6 +8,7 @@ package tests;
 import edu.eci.pdsw.samples.entities.Eps;
 import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
+import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
 import edu.eci.pdsw.samples.services.ServiciosPacientes;
 import java.util.Date;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class ServiciosPacientesTest {
     public void testRegistroPaciente() throws ExcepcionServiciosPacientes{
         Paciente pa1 = new Paciente(132456,"CC","PEPITA",new Date("1982-02-25"), new Eps("PEPITAS", "1241241"));
         Paciente pa2=new Paciente(9587456, "TI","Pepote",new Date("20041-01-29"), new Eps("PEPIToS", "124646"));
-        ServiciosPacientes ps = null;
+        ServiciosPacientes ps=new ServiciosHistorialPacientesFactory().getInstance().getServiciosPaciente();
         ps.registrarNuevoPaciente(pa2);
         ps.registrarNuevoPaciente(pa1);
         
