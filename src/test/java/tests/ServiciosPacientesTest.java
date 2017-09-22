@@ -5,12 +5,11 @@
  */
 package tests;
 
-import edu.eci.pdsw.samples.entities.Eps;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
-import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
-import edu.eci.pdsw.samples.services.ServiciosPacientes;
+import edu.eci.pdsw.samples.entities.*;
+import edu.eci.pdsw.samples.services.*;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -60,8 +59,19 @@ public class ServiciosPacientesTest {
     }
     
     @Test
-    public void testAgregarConsultaPacienteCE1()
+    public void testAgregarConsultaPacienteCE2()
     {
+        ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
+        
+        try {
+            Consulta c=new Consulta();
+            sp.registrarNuevoPaciente(new Paciente(132456,"CC","PEPITA",new Date("1982-02-25"), new Eps("PEPITAS", "1241241")));
+            sp.agregarConsultaPaciente(132456,"CC",c);
+            
+            assertTrue("No se esta agregando correctamente la consulta",sp.obtenerConsultasEps("PEPITAS").contains(c));
+        } catch (ExcepcionServiciosPacientes ex) {
+            Logger.getLogger(ServiciosPacientesTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
