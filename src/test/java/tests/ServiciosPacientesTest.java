@@ -22,7 +22,31 @@ import static org.junit.Assert.*;
  * CLASE 1: SI recibe un paciente valido lo agrega lo agrega al Map pacientes.
  * Retorna Null
  * 
+ * METODO agregarConsultaPaciente
  * 
+ * CE1: hay error en persistencia o paciente no existe
+ * Resultado esperado: Error
+ * 
+ * CE2: no hay error en persistencia y paciente existe
+ * Resultado esperado: se agrega una consulta al paciente especificado.
+ * 
+ * Condiciones de frontera:
+ * 
+ * CF1: no hay error en persistencia y paciente no existe
+ * Clases relacionadas: CE1,CE2
+ * Resultado esperado: Error - El paciente no existe
+ * 
+ * CF2: hay error en persistencia y paciente existe
+ * Clases relacionadas: CE1,CE2
+ * Resultado esperado: Error - Error en persistencia
+ * 
+ * CF3: hay error en persistencia y paciente no existe
+ * Clases relacionadas: CE1
+ * Resultado esperado: Error
+ * 
+ * CF4: no hay error en persistencia y paciente existe
+ * Clases relacionadas: CE2
+ * Resultado esperado: Se agrega una consulta al paciente especificado.
  */
 public class ServiciosPacientesTest {
     @Test
@@ -31,14 +55,14 @@ public class ServiciosPacientesTest {
         Paciente pa2=new Paciente(9587456, "TI","Pepote",new Date("20041-01-29"), new Eps("PEPIToS", "124646"));
         ServiciosPacientes ps=new ServiciosHistorialPacientesFactory().getInstance().getServiciosPaciente();
         ps.registrarNuevoPaciente(pa2);
-        ps.registrarNuevoPaciente(pa1);
+        ps.registrarNuevoPaciente(pa1);    
+    
+    }
+    
+    @Test
+    public void testAgregarConsultaPacienteCE1()
+    {
         
-        
-        
-    
-    
-    
-    
     }
     
 
