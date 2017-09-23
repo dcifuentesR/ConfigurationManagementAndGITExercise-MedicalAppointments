@@ -7,7 +7,7 @@ package tests;
 
 import edu.eci.pdsw.samples.entities.*;
 import edu.eci.pdsw.samples.services.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Before;
@@ -50,12 +50,25 @@ import static org.junit.Assert.*;
 public class ServiciosPacientesTest {
     @Test
     public void testRegistroPaciente() throws ExcepcionServiciosPacientes{
-        Paciente pa1 = new Paciente(132456,"CC","PEPITA",new Date("1982-02-25"), new Eps("PEPITAS", "1241241"));
-        Paciente pa2=new Paciente(9587456, "TI","Pepote",new Date("20041-01-29"), new Eps("PEPIToS", "124646"));
+        Paciente pa1 = new Paciente(132456,"CC","PEPITA",Date.valueOf("1982-02-25"), new Eps("PEPITAS", "1241241"));
+        Paciente pa2=new Paciente(9587456, "TI","Pepote",Date.valueOf("2004-01-29"), new Eps("PEPIToS", "124646"));
         ServiciosPacientes ps=new ServiciosHistorialPacientesFactory().getInstance().getServiciosPaciente();
         ps.registrarNuevoPaciente(pa2);
         ps.registrarNuevoPaciente(pa1);    
     
+    }
+    
+    @Test
+    public void testAgregarConsultaPacienteCE1()
+    {
+        ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
+        
+        try {
+            sp.agregarConsultaPaciente(123, "TI", new Consulta());
+        } catch (ExcepcionServiciosPacientes ex) {
+            assertEquals("No se esta lanzando la excepcion adecuada para CF1"
+                    ,"El paciente con identificacion 123 no existe",ex.getMessage());
+        }
     }
     
     @Test
@@ -65,7 +78,7 @@ public class ServiciosPacientesTest {
         
         try {
             Consulta c=new Consulta();
-            sp.registrarNuevoPaciente(new Paciente(132456,"CC","PEPITA",new Date("1982-02-25"), new Eps("PEPITAS", "1241241")));
+            sp.registrarNuevoPaciente(new Paciente(132456,"CC","PEPITA",Date.valueOf("1982-02-25"), new Eps("PEPITAS", "1241241")));
             sp.agregarConsultaPaciente(132456,"CC",c);
             
             assertTrue("No se esta agregando correctamente la consulta",sp.obtenerConsultasEps("PEPITAS").contains(c));
