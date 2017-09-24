@@ -7,6 +7,7 @@ package edu.eci.pdsw.samples.managebeans;
 
 
 import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.entities.Eps;
 import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
 import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
@@ -40,7 +41,7 @@ public class RegistroConsultaBean implements Serializable {
     String tipoId;
     String nombre;
     Date fechaNacimiento;
-    String nombreEPS;
+    Eps eps;
 
     public List<Paciente> getPacientes() throws ExcepcionServiciosPacientes {
         return servicepacientes.consultarPacientes();
@@ -78,17 +79,17 @@ public class RegistroConsultaBean implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getNombreEPS() {
-        return nombreEPS;
+    public Eps getNombreEPS() {
+        return eps;
     }
 
-    public void setNombreEPS(String nombreEPS) {
-        this.nombreEPS = nombreEPS;
+    public void setNombreEPS(Eps eps) {
+        this.eps = eps;
     }
     
-    public void registrarPaciente()
+    public void registrarPaciente() throws ExcepcionServiciosPacientes
     {
-        servicepacientes.registrarNuevoPaciente(paciente);
+        servicepacientes.registrarNuevoPaciente(new Paciente(idPaciente, tipoId, nombre, fechaNacimiento, eps));
     }
 
     public RegistroConsultaBean() {
