@@ -79,11 +79,11 @@ public class RegistroConsultaBean implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Eps getNombreEPS() {
+    public Eps getEPS() {
         return eps;
     }
 
-    public void setNombreEPS(Eps eps) {
+    public void setEPS(Eps eps) {
         this.eps = eps;
     }
     
