@@ -33,10 +33,15 @@
                 </p:column>
                 
                 <f:facet name="footer">
-                    <p:commandButton update="registro_pacientes" value="Registrar Paciente" type="button" onclick="PF('dlgRegistroPaciente').show();"/>
+                    <p:commandButton update="registro_pacientes" value="Registrar Paciente" type="button" onclick="PF('dlgRegistroPaciente').show()"/>
                 </f:facet>
                 
-                <p:dialog header="Registrar Paciente" widgetVar="dlgRegistroPaciente">
+                
+            </p:dataTable>
+            
+        </h:form>
+        
+        <p:dialog header="Registrar Paciente" widgetVar="dlgRegistroPaciente" minHeight="100">
                     <h:panelGrid columns="2">
                         <p:outputLabel value="id"/>
                         <p:inputText value="#{HistorialPacientes.idPaciente}"/>
@@ -55,10 +60,5 @@
                     </h:panelGrid>
                 </p:dialog>
                 
-            </p:dataTable>
-                
-            
-            
-        </h:form>
     </h:body>
 </html>
