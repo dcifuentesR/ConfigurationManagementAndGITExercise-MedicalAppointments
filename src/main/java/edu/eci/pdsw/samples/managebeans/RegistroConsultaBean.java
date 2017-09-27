@@ -47,6 +47,11 @@ public class RegistroConsultaBean implements Serializable {
         return servicepacientes.consultarPacientes();
     }
     
+    public List<Eps> getEPSs() throws ExcepcionServiciosPacientes
+    {
+        return servicepacientes.obtenerEPSsRegistradas();
+    }
+    
     public int getIdPaciente() {
         return idPaciente;
     }

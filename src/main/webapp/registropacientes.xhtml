@@ -56,7 +56,9 @@
                         <p:calendar></p:calendar>
                         
                         <p:outputLabel value="EPS"/>
-                        <p:selectOneMenu value="#{HistorialPacientes.EPS}"></p:selectOneMenu>
+                        <p:selectOneMenu value="#{HistorialPacientes.EPS}" >
+                            <f:selectItems value="#{HistorialPacientes.EPSs}" var="Eps" itemLabel="#{Eps.nombre}" itemValue="#{Eps}"/>
+                        </p:selectOneMenu>
                     </h:panelGrid>
                 </p:dialog>
                 
