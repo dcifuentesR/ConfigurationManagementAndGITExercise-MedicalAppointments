@@ -42,6 +42,15 @@ public class RegistroConsultaBean implements Serializable {
     String nombre;
     Date fechaNacimiento;
     Eps eps;
+    Paciente pacienteSelecionado=null; 
+
+    public Paciente getPacienteSelecionado(){
+    
+        return pacienteSelecionado;
+    }
+    public void setPacienteSeleccionado(Paciente paciente){
+        pacienteSelecionado=paciente;
+    }
 
     public List<Paciente> getPacientes() throws ExcepcionServiciosPacientes {
         return servicepacientes.consultarPacientes();
@@ -98,6 +107,8 @@ public class RegistroConsultaBean implements Serializable {
     }
 
     public RegistroConsultaBean() {
+        
+     
 
     }
 

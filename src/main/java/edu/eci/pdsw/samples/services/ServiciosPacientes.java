@@ -16,7 +16,6 @@
  */
 package edu.eci.pdsw.samples.services;
 
-
 import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.Eps;
 import edu.eci.pdsw.samples.entities.Paciente;
@@ -29,9 +28,7 @@ import java.util.List;
  * @author hcadavid
  */
 public interface ServiciosPacientes {
-    
-    
-   
+       
 
     /**
      * Consultar un paciente dado su identificador.
