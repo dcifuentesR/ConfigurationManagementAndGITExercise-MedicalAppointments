@@ -12,28 +12,28 @@
                     <h:outputText value="#{paciente.id}"/>
                 </p:column>
                 
-                <p:column headerText="">
+                <p:column headerText="Tipo de Id">
                     <h:outputText value="#{paciente.tipoId}"/>
                 </p:column>
                 
-                <p:column headerText="">
+                <p:column headerText="NOmbre Paciente">
                     <h:outputText value="#{paciente.nombre}"/>
                 </p:column>
                 
-                <p:column headerText="">
+                <p:column headerText="Fecha de Nacimiento">
                     <h:outputText value="#{paciente.fechaNacimiento}"/>
                 </p:column>
                 
-                <p:column headerText="">
+                <p:column headerText="Nombre EPS">
                     <h:outputText value="#{paciente.eps.nombre}"/>
                 </p:column>
                 
                 <p:column >
-                    <h:commandButton value=""/>
+                    <h:commandButton value="Registrar Paciente"/>
                 </p:column>
                 
                 <f:facet name="footer">
-                    <p:commandButton update="" value="" type="button" onclick="PF('dlgRegistroPaciente').show()"/>
+                    <p:commandButton update="" value="Registrar Paciente" type="button" onclick="PF('dlgRegistroPaciente').show()"/>
                 </f:facet>
                 
                 
@@ -49,7 +49,7 @@
                         <p:outputLabel value="Tipo de id"/>
                         <p:inputText value="#{HistorialPacientes.tipoId}"/>
                         
-                        <p:outputLabel value="Nombre"/>
+                        <p:outputLabel value="Nombres"/>
                         <p:inputText value="#{HistorialPacientes.nombre}"/>
                         
                         <p:outputLabel value="Fecha de nacimiento"/>

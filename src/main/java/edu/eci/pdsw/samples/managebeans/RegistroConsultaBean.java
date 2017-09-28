@@ -16,6 +16,7 @@ import edu.eci.pdsw.samples.services.ServiciosPacientes;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 
@@ -34,8 +35,6 @@ import javax.inject.Inject;
 public class RegistroConsultaBean implements Serializable {
     
     private final ServiciosPacientes servicepacientes = ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
-
-    
     List<Paciente> pacientes;
     int idPaciente;
     String tipoId;
@@ -50,6 +49,10 @@ public class RegistroConsultaBean implements Serializable {
     }
     public void setPacienteSeleccionado(Paciente paciente){
         pacienteSelecionado=paciente;
+    }
+    public Set<Consulta> getConsultaspacSeleccionado(){
+        return pacienteSelecionado.getConsultas();
+    
     }
 
     public List<Paciente> getPacientes() throws ExcepcionServiciosPacientes {

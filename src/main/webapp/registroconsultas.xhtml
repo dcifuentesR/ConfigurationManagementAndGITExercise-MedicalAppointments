@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -7,38 +8,18 @@
     <h:body>
         
         <h:form id="registro_citas">
-            <p:dataTable var="paciente" value="#{}">
-                <p:column headerText="id">
-                    <h:outputText value="#{}"/>
+            <p:dataTable var="pacientxe_selecionado" value="">
+                <f:facet name="header">
+                    Paciente Consultado
+                </f:facet>                 
+                <p:column headerText="#ConsultasPaciente">
+                    <h:outputText value=""/>
                 </p:column>
-                
-                <p:column headerText="Tipo de id">
-                    <h:outputText value="#{}"/>
+                <p:column headerText="#FechaHORA">
+                    <h:outputText value=""/>
                 </p:column>
-                
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{}"/>
-                </p:column>
-                
-                <p:column headerText="Fecha de nacimiento">
-                    <h:outputText value="#{}"/>
-                </p:column>
-                
-                <p:column headerText="EPS">
-                    <h:outputText value="#{}"/>
-                </p:column>
-                
-                <p:column >
-                    <h:commandButton value="Registrar cita"/>
-                </p:column>
-                
-                <f:facet name="footer">
-                    <p:commandButton update="registro_pacientes" value="Registrar Paciente" type="button" onclick="PF('dlgRegistroPaciente').show()"/>
-                </f:facet>
-                
-                
-            </p:dataTable>
-            
+                        
+            </p:dataTable>                     
         </h:form>
 
     </h:body>
