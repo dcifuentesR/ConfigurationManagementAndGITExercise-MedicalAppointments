@@ -46,6 +46,7 @@ public class Paciente {
     }
 
     public Paciente(){
+            Paciente pacienteSelecionado= new Paciente(12,"CC","PEPITO", new Date("12-12-12"),new Eps("pepa", "12312"));
     }
 
     public int getId(){

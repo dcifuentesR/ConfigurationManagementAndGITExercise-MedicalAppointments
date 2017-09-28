@@ -8,15 +8,15 @@
     <h:body>
         
         <h:form id="registro_citas">
-            <p:dataTable var="pacientxe_selecionado" value="">
+            <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes.consultaspacSeleccionado}">
                 <f:facet name="header">
                     Paciente Consultado
                 </f:facet>                 
-                <p:column headerText="#ConsultasPaciente">
-                    <h:outputText value=""/>
+                <p:column headerText="#Costo ">
+                    <h:outputText value="#{pacientxeselecionado.costo}"/>
                 </p:column>
-                <p:column headerText="#FechaHORA">
-                    <h:outputText value=""/>
+                <p:column headerText="Resumen">
+                    <h:outputText value="#{pacientxeselecionado.resumen}"/>
                 </p:column>
                         
             </p:dataTable>                     

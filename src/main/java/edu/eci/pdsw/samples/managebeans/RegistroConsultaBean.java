@@ -12,9 +12,10 @@ import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
 import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
 import edu.eci.pdsw.samples.services.ServiciosPacientes;
-
+import java.sql.Date;
 import java.io.Serializable;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+//import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -42,7 +43,7 @@ public class RegistroConsultaBean implements Serializable {
     Date fechaNacimiento;
     Eps eps;
     Eps epsSeleccionada;
-    Paciente pacienteSelecionado=null; 
+    Paciente pacienteSelecionado; 
 
     public Paciente getPacienteSelecionado(){
     
@@ -72,6 +73,11 @@ public class RegistroConsultaBean implements Serializable {
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
+    //public long costoConsul(){
+      //  return pacienteSelecionado.getConsultas().g
+        
+    
+    //}
 
     public String getTipoId() {
         return tipoId;
@@ -110,9 +116,11 @@ public class RegistroConsultaBean implements Serializable {
         servicepacientes.registrarNuevoPaciente(new Paciente(idPaciente, tipoId, nombre, fechaNacimiento, epsSeleccionada));
     }
 
-    public RegistroConsultaBean() {
-        
-     
+    public RegistroConsultaBean() throws ExcepcionServiciosPacientes {
+        //pacienteSelecionado= new Paciente(12,"CC","PEPITO", Date.valueOf("12-12-12"),new Eps("pepa", "12312"));
+        //Consulta con=new Consulta(Date.valueOf("12-1-1") , "Se murio", 99999);    
+        //pacienteSelecionado.setConsultas( (Set<Consulta>) con);
+        pacienteSelecionado=servicepacientes.consultarPaciente(1, "CC");
 
     }
 
