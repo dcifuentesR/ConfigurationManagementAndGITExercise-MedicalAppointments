@@ -40,6 +40,7 @@ public class RegistroConsultaBean implements Serializable {
     String tipoId;
     String nombre;
     Date fechaNacimiento;
+    Eps eps;
     Eps epsSeleccionada;
     Paciente pacienteSelecionado=null; 
 
