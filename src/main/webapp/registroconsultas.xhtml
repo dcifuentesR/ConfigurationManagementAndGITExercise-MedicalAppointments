@@ -4,22 +4,53 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head></h:head>
-
     <h:body>
-        
         <h:form id="registro_citas">
             <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes.consultaspacSeleccionado}">
                 <f:facet name="header">
                     Paciente Consultado
                 </f:facet>                 
+                <f:facet name="header">
+                    "#{HistorialPacientes.pacienteSelecionado.nombre}"
+                </f:facet>                 
+                <p:column headerText="Id">
+                    <h:outputText value="#{pacientxeselecionado.id}"/>
+                </p:column>
                 <p:column headerText="#Costo ">
                     <h:outputText value="#{pacientxeselecionado.costo}"/>
                 </p:column>
                 <p:column headerText="Resumen">
                     <h:outputText value="#{pacientxeselecionado.resumen}"/>
-                </p:column>
-                        
+                </p:column>  
+                <p:column headerText="Fecha Hora">
+                    <h:outputText value="#{pacientxeselecionado.fechayHora}"/>
+                </p:column>  
             </p:dataTable>                     
+            
+            <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes}">
+                <f:facet name="header">
+                    Agregar Consulta
+                </f:facet>            
+
+                <p:column headerText="Resumen">
+
+                    <h:inputText  value=""></h:inputText>
+                </p:column>
+                <p:column headerText="#Costo ">
+
+                    <h:inputText  value=""></h:inputText>
+                </p:column>
+                <p:column headerText="Fecha de Consulta">
+                    <p:growl id="registro_citas" showDetail="true"/>
+            
+                        <h:panelGrid columns="2">
+                            <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.fechaNacimiento}"/>
+                
+                
+                        </h:panelGrid>
+
+                </p:column>
+            </p:dataTable>                                           
         </h:form>
 
     </h:body>

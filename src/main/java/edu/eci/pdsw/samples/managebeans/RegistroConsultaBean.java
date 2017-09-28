@@ -52,6 +52,7 @@ public class RegistroConsultaBean implements Serializable {
     public void setPacienteSeleccionado(Paciente paciente){
         pacienteSelecionado=paciente;
     }
+
     public Set<Consulta> getConsultaspacSeleccionado(){
         return pacienteSelecionado.getConsultas();
     
@@ -65,7 +66,10 @@ public class RegistroConsultaBean implements Serializable {
     {
         return servicepacientes.obtenerEPSsRegistradas();
     }
+    public void AgregarNuevaCons(Consulta con) throws ExcepcionServiciosPacientes{
+        servicepacientes.agregarConsultaPaciente(pacienteSelecionado.getId(), pacienteSelecionado.getTipoId(), con);
     
+    }
     public int getIdPaciente() {
         return idPaciente;
     }
