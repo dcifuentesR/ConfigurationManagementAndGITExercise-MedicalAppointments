@@ -12,10 +12,10 @@ import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
 import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
 import edu.eci.pdsw.samples.services.ServiciosPacientes;
-import java.sql.Date;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-//import java.util.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +41,6 @@ public class RegistroConsultaBean implements Serializable {
     String tipoId;
     String nombre;
     Date fechaNacimiento;
-    Eps eps;
     Eps epsSeleccionada;
     //
     Paciente pacienteSelecionado; 
@@ -125,15 +124,18 @@ public class RegistroConsultaBean implements Serializable {
     }
 
     public Eps getEPSSeleccionada() {
+        System.out.println("pasaGet");
         return epsSeleccionada;
     }
 
     public void setEPSSeleccionada(Eps epsSeleccionada) {
+        System.out.println("pasaSet");
         this.epsSeleccionada = epsSeleccionada;
     }
     
     public void registrarPaciente() throws ExcepcionServiciosPacientes
     {
+        System.out.println("pasaReg");
         servicepacientes.registrarNuevoPaciente(new Paciente(idPaciente, tipoId, nombre, fechaNacimiento, epsSeleccionada));
     }
 
