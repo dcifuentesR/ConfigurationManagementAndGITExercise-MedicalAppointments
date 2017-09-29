@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.sql.Date;
 
 /**
  *
@@ -59,21 +60,23 @@ public class ServiciosPacientesTest {
     }
     
     @Test
-    public void testAgregarConsultaPacienteCE1()
-    {
-//        ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
-//        
-//        try {
-//            sp.agregarConsultaPaciente(123, "TI", new Consulta());
-//        } catch (ExcepcionServiciosPacientes ex) {
-//            assertEquals("No se esta lanzando la excepcion adecuada para CF1"
-//                    ,"El paciente con identificacion 123 no existe",ex.getMessage());
-//        }
+    public void testAgregarConsultaPacienteCE1() throws ExcepcionServiciosPacientes {
+        
+        Consulta con= new Consulta();    
+        //con = new Consulta(Date.valueOf("12-1-1") , "Se murio", 99999);
+
+        ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
+
+        try {
+            sp.agregarConsultaPaciente(9999, "TI", con);
+        } catch (ExcepcionServiciosPacientes ex) {
+            assertEquals("No se esta lanzando la excepcion adecuada para CF1"
+                    ,"El paciente con identificacion 123 no existe",ex.getMessage());
+        }
     }
     
     @Test
-    public void testAgregarConsultaPacienteCE2()
-    {
+    public void testAgregarConsultaPacienteCE2()throws ExcepcionServiciosPacientes    {
         ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
         
         try {
