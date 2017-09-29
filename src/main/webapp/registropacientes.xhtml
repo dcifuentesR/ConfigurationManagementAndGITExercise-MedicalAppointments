@@ -54,10 +54,11 @@
                         <p:outputLabel value="Fecha de nacimiento"/>
                         <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.fechaNacimiento}"/>
                         
-                       <!-- <p:outputLabel value="EPS"/>
-                         <p:selectOneMenu value="#{HistorialPacientes.EPSSeleccionada}" >
+                        <p:outputLabel value="EPS"/>
+                        <p:selectOneMenu id="Menu_eps" value="#{HistorialPacientes.EPSSeleccionada}" converter="epsConverter" >
                             <f:selectItems value="#{HistorialPacientes.listaEPS}" var="Eps" itemLabel="#{Eps.nombre}" itemValue="#{Eps}"/>
-                        </p:selectOneMenu> -->
+                        </p:selectOneMenu>
+                        <!--<h:messages showDetail="true" showSummary="true"/> -->
                 </h:panelGrid>        
                 
         </p:panel>
