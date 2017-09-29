@@ -30,26 +30,28 @@
             <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes}">
                 <f:facet name="header">
                     Agregar Consulta
+                    <p:commandButton action="#{HistorialPacientes.setAgregarNuevaCons()}" value="Añadir"></p:commandButton>                    
                 </f:facet>            
 
                 <p:column headerText="Resumen">
 
-                    <h:inputText  value=""></h:inputText>
+                    <h:inputText  value="#{HistorialPacientes.setNuevoResumen(i)}"></h:inputText>
                 </p:column>
                 <p:column headerText="#Costo ">
 
-                    <h:inputText  value=""></h:inputText>
+                    <h:inputText  value="#{HistorialPacientes.setCostoNuevo(i)}"></h:inputText>
                 </p:column>
                 <p:column headerText="Fecha de Consulta">
                     <p:growl id="registro_citas" showDetail="true"/>
             
                         <h:panelGrid columns="2">
-                            <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.fechaNacimiento}"/>
-                
+                            <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.setFechaConsulta(i)}"/>
                 
                         </h:panelGrid>
-
+                    <p:commandButton action="#{HistorialPacientes.agregarNuevaCons()}" value="Añadir"></p:commandButton>
+               
                 </p:column>
+
             </p:dataTable>                                           
         </h:form>
 

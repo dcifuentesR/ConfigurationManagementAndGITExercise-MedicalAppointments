@@ -43,8 +43,23 @@ public class RegistroConsultaBean implements Serializable {
     Date fechaNacimiento;
     Eps eps;
     Eps epsSeleccionada;
+    //
     Paciente pacienteSelecionado; 
+    String NuevoResumen;
+    Long    CostoNuevo;
+    Date FechaConsulta;
+    //
+    public void setNuevoResumen(String NueResum){
+        NuevoResumen=NueResum;
 
+    }
+    public void setCostoNuevo(Long cost){
+        CostoNuevo=cost;
+    }
+    public void setFechaConsulta(Date nuevFecha){
+        FechaConsulta=nuevFecha;
+    }
+    
     public Paciente getPacienteSelecionado(){
     
         return pacienteSelecionado;
@@ -66,8 +81,10 @@ public class RegistroConsultaBean implements Serializable {
     {
         return servicepacientes.obtenerEPSsRegistradas();
     }
-    public void AgregarNuevaCons(Consulta con) throws ExcepcionServiciosPacientes{
-        servicepacientes.agregarConsultaPaciente(pacienteSelecionado.getId(), pacienteSelecionado.getTipoId(), con);
+    public void setAgregarNuevaCons() throws ExcepcionServiciosPacientes{
+        int tam= getConsultaspacSeleccionado().size();
+        Consulta con=new Consulta(FechaConsulta,NuevoResumen,CostoNuevo);
+        servicepacientes.agregarConsultaPaciente(tam+1, pacienteSelecionado.getTipoId(), con);
     
     }
     public int getIdPaciente() {
