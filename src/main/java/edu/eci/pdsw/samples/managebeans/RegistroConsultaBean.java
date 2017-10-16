@@ -43,20 +43,33 @@ public class RegistroConsultaBean implements Serializable {
     Date fechaNacimiento;
     Eps epsSeleccionada;
     //
-    Paciente pacienteSelecionado; 
+    Paciente pacienteSelecionado;
     String NuevoResumen;
     Long    CostoNuevo;
     Date FechaConsulta;
-    //
-    public void setNuevoResumen(String NueResum){
-        NuevoResumen=NueResum;
 
+    public String getNuevoResumen() {
+        return NuevoResumen;
     }
-    public void setCostoNuevo(Long cost){
-        CostoNuevo=cost;
+
+    public void setNuevoResumen(String NuevoResumen) {
+        this.NuevoResumen = NuevoResumen;
     }
-    public void setFechaConsulta(Date nuevFecha){
-        FechaConsulta=nuevFecha;
+
+    public Long getCostoNuevo() {
+        return CostoNuevo;
+    }
+
+    public void setCostoNuevo(Long CostoNuevo) {
+        this.CostoNuevo = CostoNuevo;
+    }
+
+    public Date getFechaConsulta() {
+        return FechaConsulta;
+    }
+
+    public void setFechaConsulta(Date FechaConsulta) {
+        this.FechaConsulta = FechaConsulta;
     }
     
     public Paciente getPacienteSelecionado(){
@@ -93,11 +106,6 @@ public class RegistroConsultaBean implements Serializable {
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
-    //public long costoConsul(){
-      //  return pacienteSelecionado.getConsultas().g
-        
-    
-    //}
 
     public String getTipoId() {
         return tipoId;
