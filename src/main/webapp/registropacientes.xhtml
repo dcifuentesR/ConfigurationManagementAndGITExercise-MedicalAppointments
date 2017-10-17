@@ -16,7 +16,7 @@
                     <h:outputText value="#{paciente.tipoId}"/>
                 </p:column>
                 
-                <p:column headerText="NOmbre Paciente">
+                <p:column headerText="Nombre Paciente">
                     <h:outputText value="#{paciente.nombre}"/>
                 </p:column>
                 
@@ -29,7 +29,9 @@
                 </p:column>
                 
                 <p:column >
-                    <h:commandButton value="Registrar Paciente"/>
+                    <h:commandButton value="Ver Consultas" action="#{HistorialPacientes.verConsultas}">
+                        <f:setPropertyActionListener value="#{paciente}" target="#{HistorialPacientes.pacienteSeleccionado}"/>
+                    </h:commandButton>
                 </p:column>
                 
                 <f:facet name="footer">
@@ -55,10 +57,10 @@
                         <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.fechaNacimiento}"/>
                         
                         <p:outputLabel value="EPS"/>
-                        <p:selectOneMenu id="Menu_eps" value="#{HistorialPacientes.EPSSeleccionada}" converter="epsConverter" >
+                        <!--<p:selectOneMenu id="Menu_eps" value="#{HistorialPacientes.EPSSeleccionada}" converter="epsConverter" >
                             <f:selectItems value="#{HistorialPacientes.listaEPS}" var="Eps" itemLabel="#{Eps.nombre}" itemValue="#{Eps}"/>
                         </p:selectOneMenu>
-                        <!--<h:messages showDetail="true" showSummary="true"/> -->
+                        <h:messages showDetail="true" showSummary="true"/> -->
                 </h:panelGrid>        
                 
         </p:panel>

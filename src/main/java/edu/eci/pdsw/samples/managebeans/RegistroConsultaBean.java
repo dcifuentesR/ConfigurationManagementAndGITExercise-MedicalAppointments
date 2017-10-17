@@ -43,7 +43,7 @@ public class RegistroConsultaBean implements Serializable {
     Date fechaNacimiento;
     Eps epsSeleccionada;
     //
-    Paciente pacienteSelecionado;
+    Paciente pacienteSeleccionado;
     String NuevoResumen;
     Long    CostoNuevo;
     Date FechaConsulta;
@@ -72,16 +72,18 @@ public class RegistroConsultaBean implements Serializable {
         this.FechaConsulta = FechaConsulta;
     }
     
-    public Paciente getPacienteSelecionado(){
-    
-        return pacienteSelecionado;
-    }
     public void setPacienteSeleccionado(Paciente paciente){
-        pacienteSelecionado=paciente;
+        this.pacienteSeleccionado=paciente;
     }
+    
+    public Paciente getPacienteSeleccionado(){
+    
+        return pacienteSeleccionado;
+    }
+    
 
     public Set<Consulta> getConsultaspacSeleccionado(){
-        return pacienteSelecionado.getConsultas();
+        return pacienteSeleccionado.getConsultas();
     
     }
 
@@ -93,10 +95,8 @@ public class RegistroConsultaBean implements Serializable {
     {
         return servicepacientes.obtenerEPSsRegistradas();
     }
-    public void setAgregarNuevaCons() throws ExcepcionServiciosPacientes{
-        int tam= getConsultaspacSeleccionado().size();
-        Consulta con=new Consulta(FechaConsulta,NuevoResumen,CostoNuevo);
-        servicepacientes.agregarConsultaPaciente(tam+1, pacienteSelecionado.getTipoId(), con);
+    public void agregarConsulta() throws ExcepcionServiciosPacientes{
+        servicepacientes.agregarConsultaPaciente(pacienteSeleccionado.getId(),pacienteSeleccionado.getTipoId(),new Consulta(FechaConsulta,NuevoResumen,CostoNuevo));
     
     }
     public int getIdPaciente() {
@@ -148,11 +148,16 @@ public class RegistroConsultaBean implements Serializable {
     }
 
     public RegistroConsultaBean() throws ExcepcionServiciosPacientes {
-        //pacienteSelecionado= new Paciente(12,"CC","PEPITO", Date.valueOf("12-12-12"),new Eps("pepa", "12312"));
+        //pacienteSeleccionado= new Paciente(12,"CC","PEPITO", Date.valueOf("12-12-12"),new Eps("pepa", "12312"));
         //Consulta con=new Consulta(Date.valueOf("12-1-1") , "Se murio", 99999);    
-        //pacienteSelecionado.setConsultas( (Set<Consulta>) con);
-        pacienteSelecionado=servicepacientes.consultarPaciente(1, "CC");
+        //pacienteSeleccionado.setConsultas( (Set<Consulta>) con);
+        //pacienteSeleccionado=servicepacientes.consultarPaciente(1, "CC");
 
+    }
+    
+    public String verConsultas()
+    {
+        return "registroconsultas";
     }
 
     public void showMessage(String estado, String mensaje) {

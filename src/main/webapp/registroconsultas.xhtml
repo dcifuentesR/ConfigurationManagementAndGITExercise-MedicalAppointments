@@ -5,51 +5,54 @@
     <h:head></h:head>
     <h:body>
         <h:form id="registro_citas">
-            <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes.consultaspacSeleccionado}">
+            
+            
+            <p:dataTable var="consulta" value="#{HistorialPacientes.consultaspacSeleccionado}">
                 <f:facet name="header">
-                    Paciente Consultado
-                </f:facet>                 
-                <f:facet name="header">
-                    "#{HistorialPacientes.pacienteSelecionado.nombre}"
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nombre:"/>
+                        <h:outputText value="#{HistorialPacientes.pacienteSeleccionado.nombre}"/>
+                        
+                        <h:outputLabel value="ID:"/>
+                        <h:outputText value="#{HistorialPacientes.pacienteSeleccionado.id}"/>
+                    </h:panelGrid>
                 </f:facet>                 
                 <p:column headerText="Id">
-                    <h:outputText value="#{pacientxeselecionado.id}"/>
+                    <h:outputText value="#{consulta.id}"/>
                 </p:column>
                 <p:column headerText="#Costo ">
-                    <h:outputText value="#{pacientxeselecionado.costo}"/>
+                    <h:outputText value="#{consulta.costo}"/>
                 </p:column>
                 <p:column headerText="Resumen">
-                    <h:outputText value="#{pacientxeselecionado.resumen}"/>
+                    <h:outputText value="#{consulta.resumen}"/>
                 </p:column>  
                 <p:column headerText="Fecha Hora">
-                    <h:outputText value="#{pacientxeselecionado.fechayHora}"/>
-                </p:column>  
+                    <h:outputText value="#{consulta.fechayHora}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Añadir" onclick="PF('dlgAgregarConsulta').show()"></p:commandButton>                    
+                </f:facet>
+                
             </p:dataTable>                     
             
-            <p:dataTable var="pacientxeselecionado" value="#{HistorialPacientes}">
-                <f:facet name="header">
-                    Agregar Consulta
-                    <p:commandButton action="#{HistorialPacientes.setAgregarNuevaCons()}" value="Añadir"></p:commandButton>                    
-                </f:facet>            
-
-                <p:column headerText="Resumen">
-
-                    <h:inputText  value="#{HistorialPacientes.setNuevoResumen(i)}"></h:inputText>
-                </p:column>
-                <p:column headerText="#Costo ">
-
-                    <h:inputText  value="#{HistorialPacientes.setCostoNuevo(i)}"></h:inputText>
-                </p:column>
-                <p:column headerText="Fecha de Consulta">
-                    <p:growl id="registro_citas" showDetail="true"/>
-            
-                        <h:panelGrid columns="2">
-                            <p:calendar pattern="yyyy-MM-dd" value="#{HistorialPacientes.setFechaConsulta(i)}"/>
-    
-                        </h:panelGrid>
-                    <p:commandButton action="#{HistorialPacientes.setAgregarNuevaCons()}" value="Añadir"></p:commandButton>
-                </p:column>
-            </p:dataTable>                                           
+            <p:dialog header="Agregar Consulta" widgetVar="dlgAgregarConsulta">
+                <p:panel>
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Costo:"/>
+                        <p:inputText value="#{HistorialPacientes.costoNuevo}"/>
+                        
+                        <p:outputLabel value="Fecha:"/>
+                        <p:calendar value="#{HistorialPacientes.fechaConsulta}"/>
+                        
+                        <p:outputLabel value="Resumen:"/>
+                        <p:outputLabel value=""/>
+                        
+                        <p:inputTextarea value="#{HistorialPacientes.nuevoResumen}"/>
+                        
+                    </h:panelGrid>
+                </p:panel>
+                <p:commandButton update="registro_citas" value="Añadir Cita" onclick="PF('dlgAgregarConsulta').hide()" actionListener="#{HistorialPacientes.agregarConsulta}"/>
+            </p:dialog>                                           
         </h:form>
     </h:body>
 </html>
